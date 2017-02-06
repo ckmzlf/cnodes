@@ -4,17 +4,38 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
+program
+qiqu
+ThinkPHP
+threejs
+TP-company
+vue-cnode
+vuejs
+wordpress
+work
+node_modules
+build
+config
+static
+test
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Windows Installer files
+# Windows Installer files 安装文件
 *.cab
 *.msi
 *.msm
 *.msp
 
-# Windows shortcuts
+*.zip
+*.php
+*.json
+*..html
+.babelrc
+.editorconfig
+.gitignore
+# Windows shortcuts 快捷方式
 *.lnk
 
 # =========================
