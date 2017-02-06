@@ -41,18 +41,24 @@
 		
 	</div>
 </template>
-<style>
-.wrap{width:1200px;margin:20px auto 0;}
-.header{overflow: hidden;text-align:left;
-	  width:800px;background:#fff;border-radius:3px;
- }
- .menuList{overflow:hidden;padding: 10px;
-    background-color: #f6f6f6;
-    border-radius: 3px 3px 0 0;}
- .menuList li {	float:left; margin: 0 10px;color: #80bd01;}
+<style lang="scss" scoped>
+.wrap{
+   width:1200px;margin:20px auto 0;
+   .header{overflow: hidden;text-align:left;
+     width:800px;background:#fff;border-radius:3px;
+     .menuList{
+       overflow:hidden;padding: 10px;
+       background-color: #f6f6f6;
+       border-radius: 3px 3px 0 0;}
+      }
+}
+ .menuList  {	
+   li {float:left; margin: 0 10px;color: #80bd01;}
+   .status{background-color: #80bd01;color: #fff;padding: 3px 4px;border-radius: 3px;}
+}
  .dataList li{line-height:24px;border-bottom:1px solid #f0f0f0;padding:5px 15px;}
  .author-head img{width:24px;height:24px;}
- .menuList .status{background-color: #80bd01;color: #fff;padding: 3px 4px;border-radius: 3px;}
+
  .putTop,.good{background: #80bd01;color: #fff;}
 .share,.putTop,.good,.job,.ask{padding: 2px 4px;border-radius: 3px;font-size: 12px;}
 .share,.job,.ask{background-color: #e5e5e5;color: #999;  }
