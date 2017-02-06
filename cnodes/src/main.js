@@ -15,7 +15,7 @@ import VueRouter from 'vue-router'
  import About from './components/layout/About'
  import API from './components/layout/API'
  import NewHand from './components/layout/NewHand'
- import detailList from './components/layout/detailList'
+ import detailList from './components/layout/detail'
 
  /*注册vuex*/
  import store from './store/index'

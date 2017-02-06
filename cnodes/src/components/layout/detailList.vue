@@ -1,22 +1,52 @@
 <template>
 	<div class="wrap">
+
 	   <h1>列表</h1>
-		<ul>
-			<li v-for="item in msg">
-            <!-- 加入这个图片会有发生错误，是否为加载的原因 -->
-            <!-- <a href=""><img :src="item.author.avatar_url"></a>    -->
-            <span>{{item.reply_count}}/</span><span>{{item.visit_count}}</span>
-            <span>置顶</span>
-            <a href="">{{item.title}}</a>
-            <!-- <a href=""><img :src="item.author.avatar_url"></a> -->
-         </li>
-		</ul>
+     <sidebar></sidebar>
+     <div class="header">
+        <span class="top-title">{{detailTheme.title}}</span>
+        <div class="changes">
+        <span>
+          发布于{{detailTheme.create_at}}
+        </span>
+        <span>
+          作者 <a href="/user/xuancheng">{{detailTheme.loginname}}</a>
+        </span>
+        <span>
+          {{detailTheme.visit_count}}次浏览
+        </span>
+        
+          <span>
+            最后一次编辑是 5 个月前
+          </span>
+        
+        
+
+        
+
+      </div>
+      <div v-html="detailTheme.content" class="topic_content"></div>
+      <div class="reply">
+          <h2>回复</h2>
+          <div class=""></div>
+      </div>
+     </div>
 		<!-- <span>{{msg}}</span> -->
 	</div>
 </template>
-<style></style>
+<style>
+.top-title{font-size: 22px; font-weight: 700;margin: 8px 0;display: inline-block;vertical-align: bottom;width: 75%;line-height: 130%;}
+ .topic_content{text-align:left;}
+ .topic_content p img{width:100%;}
+.changes {font-size: 12px; color: #838383;}
+.changes span:before {content: "•";}
+</style>
 <script>
-	export default{
+import sidebar from '../sidebar'
+   export default {
+      components:{
+        sidebar
+      },
    	   data(){
    	   	  return {
    	   	  	  msg:"hello,world"
@@ -26,13 +56,21 @@
    	   	  
    	   },
    	   created:function(){
-             var node=document.createElement("div");
-             var textnode=document.createTextNode("加载中...");
-             document.documentElement.appendChild(textnode);
-   	   	 this.$http.get('https://cnodejs.org/api/v1/topics').then(function(response){
-   	   	  	this.msg=response.body.data;
-               document.documentElement.removeChild(textnode)
-   	   	  })
-   	   }
+         /*if(this.$store.state.detailTheme.length){
+            this.$http.get('https://cnodejs.org/api/v1/topics').then(function(response){
+                this.detailTheme=response.body.data;
+                console.log(this.detailTheme)
+              })
+           
+         }else{
+            console.log("hello")
+         }*/
+   	   },
+       computed:{
+          detailTheme(){
+            return this.$store.state.detailTheme
+          }
+          
+       }
    }
 </script>

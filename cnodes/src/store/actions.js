@@ -5,5 +5,8 @@ export default {
    	   	  	console.log(this.state.dataList);
    	    })*/
 		context.commit('Data',obj)
+	},
+	detailList(context,id){
+		context.commit("detailList",id);
 	}
 }

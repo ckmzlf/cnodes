@@ -13,7 +13,7 @@
         <input type="text" id="q" name="q" class="search-query span3" value="">
       </form>
       <ul class="nav pull-right">
-        <li><router-link to="/home">首页</router-link></li>
+        <li><router-link to="/home" >首页</router-link></li>
         <li><router-link to="/newHand">新手入门</router-link></li>
         <li><router-link to="/API">API</router-link></li>
         <li><router-link to="/About">关于</router-link></li>

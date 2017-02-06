@@ -9,7 +9,8 @@ Vue.use(Vuex);
 
 
 const state={
-	datalist:[]
+	datalist:'',
+	detailTheme:''
 }
 
 export default new Vuex.Store({
