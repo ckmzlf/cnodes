@@ -1,6 +1,6 @@
 # cnodes
 
-> A Vue.js project
+> 使用Vue2.1系列,模仿cnodes社区,仅仅实现了部分功能,使用了vue-resource,vue-router,vuex,fetch
 
 ## Build Setup
 
