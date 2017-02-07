@@ -16,6 +16,7 @@ import VueRouter from 'vue-router'
  import API from './components/layout/API'
  import NewHand from './components/layout/NewHand'
  import detailList from './components/layout/detail'
+ import perHome from './components/layout/perHome'
 
  /*注册vuex*/
  import store from './store/index'
@@ -26,7 +27,8 @@ import VueRouter from 'vue-router'
     {path:"/about",component:About},
     {path:"/API",component:API},
     {path:"/newHand",component:NewHand},
-    {path:"/topic/:id",component:detailList}
+    {path:"/topic/:id",component:detailList},
+    {path:"/user/:name",component:perHome}
  ]
 
 var router=new VueRouter({

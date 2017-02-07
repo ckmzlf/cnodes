@@ -7,13 +7,16 @@
 			</ul>
 
 			<ul class="dataList">
-				<li v-for="item in datalist" v-on:click="detailInfo(item.id)">
+				<li v-for="item in datalist" >
 		            <!-- 加入这个图片会有发生错误，是否为加载的原因 -->
-		            <a class="author-head"><img :src="item.author.avatar_url"></a> 
+		            <a class="author-head" @click="personal(item.author.loginname)"><img :src="item.author.avatar_url"></a> 
 		            <span>{{item.reply_count}}/</span><span>{{item.visit_count}}</span>
                   <span v-if='item.top' class="putTop">
                      置顶
                   </span>
+                   <span v-else-if="item.tab=='good' & item.good" class="good">
+                     精华
+                   </span>
                   <span v-else-if="item.tab=='share'" class="share">
                      分享
                   </span>
@@ -23,19 +26,16 @@
                   <span v-else-if="item.tab=='ask'" class="ask">
                      问答
                   </span>
-                  <span v-else-if="item.tab=='good'" class="good">
-                     精华
-                  </span>
-                  <!-- <span v-show="item.top" class="putTop"> 置顶</span>
-                  <span v-show="item.good" class="good"> 精华</span>
-                  <span v-show="item.tab=='share'" class="share"> 分享</span>
-                  <span v-show="item.tab=='job'" class="job"> 招聘</span>
-		            <span v-show="item.tab=='ask'" class="ask"> 问答</span> -->
-		            <a>{{item.title}}</a>
-	         	</li>
+                 
+		            <a v-on:click="detailInfo(item.id)">{{item.title}}</a>
+	         </li>
 			</ul>
 			<div class="page">
-				<!-- <a href="" v-on:click=""></a> -->
+             <a v-on:click="firstPage">第一页</a>
+             <a @click="prev">上一页</a>
+             <a v-for=""></a>
+             <a @click="next">下一页</a>
+             <a v-on:click="lastPage">最后一页</a>
 			</div>
 		</div>
 		
@@ -69,6 +69,8 @@ import sidebar from '../sidebar'
    	  components:{
    	  	sidebar
    	  },
+        beforemount(){
+        },
    	  data(){
    	  	  return {
    	  	  	 listItem:[
@@ -78,7 +80,12 @@ import sidebar from '../sidebar'
 	   	  	  	 {text:"问答",tab:"ask",isChecked:false},
 	   	  	  	 {text:"招聘",tab:"job",isChecked:false}
    	  	  	 ],
-             askType:''
+             askType:'',//tab的类型
+             showPage:5,//展示的分页数
+             currentPage:1,//当前分页数
+             limitPage:20,//每次获取的条数
+             maxPage:50//最大的页数
+
    	  	  }
    	  },
    	  created:function(){
@@ -87,10 +94,10 @@ import sidebar from '../sidebar'
             所以在vuex中保存一个类型,但是在Vuex当中的话，每次刷新也是会清空数据的
             所以使用Vuex也是不对，所以的话tab类型还是保存在sessionStorage当中比较合适
             */
-            var askType=sessionStorage.getItem("askType");
+           var askType=sessionStorage.getItem("askType");
             if(!askType){
                sessionStorage.setItem("askType",'all');
-               this.menu('all');
+               this.menu('all',1);
             }else{
                this.menu(askType);
             }
@@ -99,30 +106,58 @@ import sidebar from '../sidebar'
    	  computed:{
 	      datalist(){
 	        return this.$store.state.datalist;
-	      }
+	      },
+         page(){
+            var pag=[];
+            if(this.currentPage<this.maxPage){
+
+            }
+            return pag;
+         }
 	  },
    	  methods:{
 
-   	  	menu:function(item){
+   	  	menu:function(item,page){
             sessionStorage.setItem("askType",item);
    	  		this.listItem.map((li) =>{
 				item === li.tab ? li.isChecked = true : li.isChecked = false
 			});
    	  		var obj={};
    	  		obj.item=item;
-   	  		obj.limit=20;
-   	  		obj.page=1;
+   	  		obj.limit=this.limitPage;
+            if(!page){
+               obj.page=1;
+            }else{
+               obj.page=page;
+            }
    	  		this.$store.dispatch('createData',obj);
    	  	},
    	  	detailInfo(id){
-
    	  		//触发detailList方法，同时传递id参数
    	  		//this.$store.dispatch("detailList",id);
-
             /*通过路由传递ID*/
    	  		this.$router.push({path:'/topic/'+id,params: { userId: id }});
 
-   	  	}
+   	  	},
+         firstPage(){
+            var askType=sessionStorage.getItem("askType");
+            this.menu(askType,1);
+         },
+         lastPage(){
+            var askType=sessionStorage.getItem("askType");
+            this.menu(askType,1);
+         },
+         prev(){
+            var askType=sessionStorage.getItem("askType");
+            this.menu(askType,1);
+         },
+         next(){
+            var askType=sessionStorage.getItem("askType");
+            this.menu(askType,1);
+         },
+         personal(name){
+            this.$router.push({path:'/user/'+name,params: { userId: name }});
+         }
 
    	  }
    }
