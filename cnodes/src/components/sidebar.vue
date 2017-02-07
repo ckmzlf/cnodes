@@ -3,7 +3,7 @@
 		  侧边栏页面
 	</div>
 </template>
-<style>
+<style lang="scss" scoped>
 	.sidebar{float:right;width:300px;background:#d0d0d0;}
 </style>
 <script>
