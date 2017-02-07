@@ -41,11 +41,11 @@
 		
 	</div>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 .wrap{
-   width:1200px;margin:20px auto 0;
+   max-width:1400px;margin:20px auto 0;width:90%;
    .header{overflow: hidden;text-align:left;
-     width:800px;background:#fff;border-radius:3px;
+     margin-right:315px;background:#fff;border-radius:3px;
      .menuList{
        overflow:hidden;padding: 10px;
        background-color: #f6f6f6;

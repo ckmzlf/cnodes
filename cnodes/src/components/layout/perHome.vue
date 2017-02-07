@@ -38,8 +38,8 @@
    </div>
 </template>
 <style lang="scss" scoped>
-.wrap{width:1200px;margin:20px auto 0;
-    .panel{width:800px;text-align:left;}
+.wrap{
+    .panel{margin-right:315px;text-align:left;}
 }
 .h2{
   border-radius:3px 3px 0 0;

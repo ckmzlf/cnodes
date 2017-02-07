@@ -1,13 +1,16 @@
 <template>
 	<div class="sidebar">
-		  侧边栏页面
+		  <Tag></Tag>
 	</div>
 </template>
 <style lang="scss" scoped>
-	.sidebar{float:right;width:300px;background:#d0d0d0;}
+	.sidebar{float:right;width:300px;}
 </style>
 <script>
+import Tag from './Tag'
 	export default{
-		
+		components:{
+	   	  	Tag
+	   	  },
 	}
 </script>

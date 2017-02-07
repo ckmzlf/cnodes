@@ -56,7 +56,7 @@ import sidebar from '../sidebar'
    	   methods:{
    	   	  menu:function(){
               this.$http.get('https://cnodejs.org/api/v1/topic/'+this.$route.params.id).then(function(response){
-                
+
                 this.msg=response.body.data;
                 this.replies=response.body.data.replies;
                 console.log(this.replies);
@@ -66,8 +66,6 @@ import sidebar from '../sidebar'
    }
 </script>
 <style lang="scss" scoped>
-.header{overflow: hidden;text-align:left;
-     width:800px;background:#fff;border-radius:3px;}
 .title{padding:10px;border-bottom:1px solid #d0d0d0;}
 .top-title{font-size: 22px; font-weight: 700;margin: 8px 0;display: inline-block;vertical-align:bottom;width: 75%;line-height: 130%;}
 .topic_content{text-align:left;padding:10px;
