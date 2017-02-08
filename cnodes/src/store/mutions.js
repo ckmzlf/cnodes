@@ -6,7 +6,7 @@ export default{
           return res.text();
         }).then(function(text){
           state.datalist=JSON.parse(text).data;
-          console.log(state.datalist)
+          //console.log(state.datalist)
         }).catch(function(e) {
           console.log("获取数据失败");
           //console.log("fetch fail", JSON.stringify(e));

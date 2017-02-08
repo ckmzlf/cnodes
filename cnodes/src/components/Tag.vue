@@ -33,6 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.home-inner-title{background-color:#f6f6f6;padding:10px;border-radius:3px 3px 0 0;text-align:left;}
 .show-img {
 	text-align:left;
 	a {
@@ -72,5 +73,5 @@ export default {
 		}
 	}
 }
-.home-inner:last-child{background:#fff;margin-top:15px;}
+.home-inner{background:#fff;margin-bottom:15px;}
 </style>
