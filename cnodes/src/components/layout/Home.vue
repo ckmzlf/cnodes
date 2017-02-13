@@ -31,9 +31,11 @@
 			</ul>
 			<div class="page">
              <a v-on:click="firstPage">«</a>
+             <a v-if="currentPage>3">...</a>
              <a v-for="n in showPage" @click="pageSkip(n)" :class="{active: n==currentPage}">
                 {{n}}
              </a>
+             <a v-if="maxPage>5 && currentPage<maxPage">...</a>
              <a v-on:click="lastPage">»</a>
 			</div>
 		</div>
@@ -63,8 +65,11 @@
 .share,.job,.ask{background-color: #e5e5e5;color: #999;  }
 
 .page{border:1px solid #d0d0d0;border-radius:2px;margin:20px;display:inline-block;
- a{display:inline-block;line-height:24px;height:24px;color:#ccc;border-right:1px solid #ccc;width:24px;text-align:center;}
- .active{color:red}
+ a{display:inline-block;line-height:24px;height:24px;color:#778087;border-right:1px solid #ccc;width:24px;text-align:center;
+  &:last-child{border-right-width:0;}
+ }
+
+ .active{color:#80bd01}
  }
 </style>
 <script>

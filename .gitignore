@@ -18,6 +18,7 @@ build
 config
 static
 test
+reactjs
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/

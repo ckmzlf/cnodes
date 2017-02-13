@@ -32,6 +32,7 @@ import VueRouter from 'vue-router'
  ]
 
 var router=new VueRouter({
+  mode: 'history',
 	routes
 })
 /* eslint-disable no-new */

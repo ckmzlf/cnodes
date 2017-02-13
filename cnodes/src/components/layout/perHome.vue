@@ -25,7 +25,7 @@
             <div><router-link to="/more">查看更多»</router-link></div>
         </div>
         <div class="join-topic">
-            <h2>最近创建话题</h2>
+            <h2>最近参与话题</h2>
             <ul class="topic-list">
                 <li v-for="item in msg.recent_replies">
                     <img :src="item.author.avatar_url">
